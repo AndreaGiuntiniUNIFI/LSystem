@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>L-System, CG&3D Project</title>
+      <link rel="stylesheet" href="./style.css">
+      
+</head>
+
+<body>
+
+  <script src="js/three.min.js"></script>
+  <script src="js/controls/OrbitControls.js"></script>
+  <script src="js/LeafGeometry.js"></script>
+  <script src="js/Parameters.js"></script>
+  <script src="js/TreeBuilder.js"></script>
+  <script src="js/Rules.js"></script>
+
+<body>
+  <div id="topRight">
+    <img src="images/question.png" alt="Infos" width="32" height="32" onclick="Infos()">
+    <form>
+      Axiom:
+      <br>
+      <input type="text" value = "X" id="axiom"><br>
+      Rule(x,y,z):
+      ( +/- ; ^/v ; &lt/> )
+      <br>
+      <input type="text" value = "X=F[+X][-X]FX F=FF" id="rule"><br>
+      Theta:
+      <br>
+      <input type="text" value = "25.7" id="theta"><br>
+      Iterations:
+      <br>
+      <input type="text" value = "3" id="iteration"><br>
+      Scale:
+      <br>
+      <input type="text" value = "20" id="scale"><br>
+      Branch radius:
+      <br>
+      <input type="text" value = "5" id="branch"><br>
+      Leaf radius:
+      <br>
+      <input type="text" value = "2" id="leaf"><br>
+      <!--<br>
+      <input type="button" class="button" value="Render!" onclick="Render()"><br>-->
+    </form>
+  </div>
+  <canvas id='back' style="position: absolute; left: 0; top: 0; z-index: 0;"> </canvas>
+  <canvas id='canvas' style="position: absolute; left: 0; top: 0; z-index: 1;"> </canvas>   
+</body>
+    <script src="main.js"></script>
+</body>
+
+<script>
+  function Render(){
+    
+    setParams();
+    removeTree();
+    animate();
+    createTree(0,0,0);
+    animate();
+
+  }
+
+  function Infos(){
+    alert("1)Separate rules with a blank space\n2)Double click on the field to add a new tree");
+  }
+</script>
+</html>
